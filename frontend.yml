@@ -17,6 +17,11 @@
           path: /user/share/nginx/html
           state: absent
 
+    - name: Creating nginx content directory
+      ansible.builtin.file:
+        path: /user/share/nginx/html
+        state: directory
+
     - name: Download frontend code and extract it
       ansible.builtin.unarchive:
           src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
