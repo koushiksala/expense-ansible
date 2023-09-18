@@ -26,16 +26,16 @@
           path: /app
           state: directory
 
-    - name: Download frontend code and extract it
+    - name: Download backend code and extract it
       ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+        src: https://expense-artifacts.s3.amazonaws.com/backend.zip
         dest: /app
         remote_src: yes
 
     - name: Install NodeJS dependencies
       ansible.builtin.shell: npm install
       args:
-        chdir: /app
+         chdir: /app
 
     - name: Install MySQL client
       ansible.builtin.dnf:
