@@ -42,7 +42,7 @@
           name: mysql
 
     - name: Load Schema
-      ansible.builtin.shell: mysql.kdevopsb75.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
+      ansible.builtin.shell: mysql -h mysql.kdevopsb75.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
     - name: Start backend service
       ansible.builtin.systemd:
